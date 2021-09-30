@@ -16,12 +16,15 @@
     RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
     RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
     RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
-    RewriteRule ^images/(.*)$ images/$1 [L]
+    # RewriteRule ^images/(.*)$ images/$1 [L]
     RewriteRule ^(.*)$ frontend/web/$1 [L]
     RewriteCond %{REQUEST_URI} !^/(frontend|backend)/web/(assets|css|js)/
-    RewriteCond %{REQUEST_URI} !^/images/
+    # RewriteCond %{REQUEST_URI} !^/images/
     RewriteCond %{REQUEST_URI} !index.php
     RewriteCond %{REQUEST_FILENAME} !-f [OR]
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^.*$ frontend/web/index.php
+    
+    #RewriteRule ^images/(.*)$ uploads/$1 [L]
+    #RewriteCond %{REQUEST_URI} !^/images/
 </IfModule>

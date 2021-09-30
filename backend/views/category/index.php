@@ -10,11 +10,11 @@ use yii\helpers\Url;
 <div class="col-md-12">
     <?=
     Html::a(
-        'ДОБАВИТЬ АКЦИЮ',
-        Url::toRoute('/promotion/create'),
+        'ДОБАВИТЬ КАТЕГОРИЮ',
+        Url::toRoute('/category/create'),
         [
             'class' => 'btn btn-success pull-right mb-1',
-            'id' => 'promotion-create'
+            'id' => 'category-create'
         ]
     );
     ?>
@@ -34,17 +34,11 @@ use yii\helpers\Url;
                 'label' => 'Описание',
                 'attribute' => 'description',
             ],
-            // 'name',
-            // 'description',
             [
                 'class' => 'yii\grid\ActionColumn',
-                // 'attribute' => 'options',
                 'header' => 'Действия',
                 'options' => [
                     'style' => 'width: 20%;',
-                    // 'align' => 'center',
-                    // 'class' => 'text-center',
-                    // 'class' => 'd-flex justify-self-center',
                 ],
                 'template' => '{view} {update} {delete}',
                 'buttons' => [

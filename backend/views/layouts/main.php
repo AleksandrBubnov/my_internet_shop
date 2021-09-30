@@ -10,6 +10,11 @@ use yii\bootstrap4\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
+// on your view layout file
+use kartik\icons\FontAwesomeAsset;
+
+FontAwesomeAsset::register($this);
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>

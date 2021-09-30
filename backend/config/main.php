@@ -50,7 +50,8 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '/' => 'promotion/index',
-                '<controller>/<id:\d+>/action' => '<controller>/<action>',
+                //'<controller>/<id:\d+>/action' => '<controller>/<action>',
+                '<controller>/<id:\d+>/<action>' => '<controller>/<action>',
                 // '/promotion/index' => 'promotion/index',
                 // '/promotion/create' => '/promotion/create',
             ],
