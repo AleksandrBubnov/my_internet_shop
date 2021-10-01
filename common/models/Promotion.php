@@ -20,4 +20,13 @@ class Promotion extends ActiveRecord
     {
         return [];
     }
+    // public function attributeLabels()
+    // {
+    //     return [
+    //         'name' => 'Название акции',
+    //         'description' => 'Описание акции',
+    //         'imageFile' => 'Картинка акции',
+    //         'url_image' => 'Картинка акции',
+    //     ];
+    // }
 }

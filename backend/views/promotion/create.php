@@ -24,6 +24,7 @@ $form = ActiveForm::begin([
         <h3><?= $head_page ?></h3>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12">
         <?php

@@ -2,28 +2,29 @@
 
 namespace common\models;
 
-use yii\db\ActiveRecord;
-
 /**
  * @property int $id
  * @property string $name
  * @property string $description
+ * @property int $category_id
  */
-class Category extends ActiveRecord
+class Sub_category extends \yii\db\ActiveRecord
 {
     public static function tableName()
     {
-        return 'categories';
+        return 'sub_categories';
     }
     public function rules()
     {
         return [];
     }
+
     public function attributeLabels()
     {
         return [
-            'name' => 'Название категории',
-            'description' => 'Описание категории',
+            'name' => 'Название подкатегории',
+            'description' => 'Описание подкатегории',
+            'category_id' => 'Категория',
         ];
     }
 
@@ -32,6 +33,6 @@ class Category extends ActiveRecord
     //  */
     // public function getCategories()
     // {
-    //     return $this->hasMany(Sub_category::className(), ['category_id' => 'id']);
+    //     return $this->hasOne(Category::className(), ['id' => 'category_id']);
     // }
 }
