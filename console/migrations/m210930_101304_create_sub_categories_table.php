@@ -29,12 +29,12 @@ class m210930_101304_create_sub_categories_table extends Migration
             'category_id'
         );
 
-        // add foreign key for table `{{%category}}`
+        // add foreign key for table `{{%categories}}`
         $this->addForeignKey(
             '{{%fk-sub_categories-category_id}}',
             '{{%sub_categories}}',
             'category_id',
-            '{{%category}}',
+            '{{%categories}}',
             'id',
             'CASCADE'
         );
@@ -45,7 +45,7 @@ class m210930_101304_create_sub_categories_table extends Migration
      */
     public function safeDown()
     {
-        // drops foreign key for table `{{%category}}`
+        // drops foreign key for table `{{%categories}}`
         $this->dropForeignKey(
             '{{%fk-sub_categories-category_id}}',
             '{{%sub_categories}}'

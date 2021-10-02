@@ -13,12 +13,12 @@ use yii\web\UploadedFile;
 
 class PromotionController extends  Controller
 {
-    // public PromotionService $promotion_service;
-    // public function __construct($id, $module, PromotionService $promotion_service, $config = [])
-    // {
-    //     $this->promotion_service = $promotion_service;
-    //     parent::__construct($config);
-    // }
+    public PromotionService $promotion_service;
+    public function __construct($id, $module, PromotionService $promotion_service, $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        $this->promotion_service = $promotion_service;
+    }
 
     /**
      * {@inheritdoc}
@@ -57,17 +57,11 @@ class PromotionController extends  Controller
     public function actionCreate()
     {
         $model = new PromotionForm();
-
         if ($model->load(Yii::$app->request->post())) {
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             $url_image = $model->upload();
             if ($url_image) {
-                // die(var_dump($model->imageFile));
-                $promotion = new Promotion();
-                $promotion->name = $model->name;
-                $promotion->description = $model->description;
-                $promotion->url_image = $url_image;
-                if ($promotion->save()) {
+                if ($this->promotion_service->saveDB($model, $url_image)) {
                     Yii::$app->session->addFlash('success', 'Акция сохранена');
                 } else {
                     Yii::$app->session->addFlash('error', 'Ошибка сохранения акции');
@@ -106,21 +100,12 @@ class PromotionController extends  Controller
     {
         $promotion = Promotion::findOne(['id' => $id]);
         $model = new PromotionForm();
+        $model->id = $id;
 
         if ($model->load(Yii::$app->request->post())) {
-            // $this->promotion_service->saveDB($model);
-
             $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
-
             if ($url_image = $model->upload()) {
-                $promotion->name = $model->name;
-                $promotion->description = $model->description;
-                // die(var_dump($url_image));
-                if ($url_image != $promotion->url_image) {
-                    if (file_exists($promotion->url_image)) unlink($promotion->url_image);
-                }
-                $promotion->url_image = $url_image;
-                if ($promotion->save()) {
+                if ($this->promotion_service->saveDB($model, $url_image)) {
                     Yii::$app->session->addFlash('success', 'Акция сохранена');
                 } else {
                     Yii::$app->session->addFlash('error', 'Ошибка сохранения акции');

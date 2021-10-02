@@ -7,6 +7,7 @@ use yii\web\UploadedFile;
 
 class PromotionForm extends Model
 {
+    public $id;
     public $name;
     public $description;
     public $imageFile;
@@ -16,7 +17,7 @@ class PromotionForm extends Model
         return [
             // название поля, тип, сообщение при ошибке
             // можно использовать свою функцию, 'func_name'
-            [['name', 'description'], 'string', 'message' => 'не верный тип'],
+            [['id', 'name', 'description'], 'string', 'message' => 'не верный тип'],
             [['name', 'description'], 'required', 'message' => 'значение обязательное'],
             [['imageFile'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'message' => 'необходимо загрузить файл'],
         ];
