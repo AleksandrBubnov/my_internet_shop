@@ -5,6 +5,10 @@ use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+// use yii\{bootstrap5}\Modal;
+// use kartikorm\ActiveForm;
+use kartik\date\DatePicker;
+
 ?>
 
 <div class="col-md-12">
@@ -33,6 +37,17 @@ use yii\helpers\Url;
             [
                 'label' => 'Описание',
                 'attribute' => 'description',
+                // 'value' => function () {
+                //     return 'value';
+                // }
+            ],
+            [
+                'label' => 'Начало акции',
+                'attribute' => 'date_start',
+            ],
+            [
+                'label' => 'Окончание акции',
+                'attribute' => 'date_end',
             ],
             // 'name',
             // 'description',

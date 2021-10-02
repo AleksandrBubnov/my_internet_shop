@@ -107,8 +107,24 @@ class UserController extends Controller
         $model->first_name = $user->first_name;
         $model->second_name = $user->second_name;
         $model->last_name = $user->last_name;
-
+        $model->status = $user->status;
         $auth = Yii::$app->authManager;
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $user->last_name = $model->last_name;
+            $user->first_name = $model->first_name;
+            $user->second_name = $model->second_name;
+            $user->status = $model->status;
+            if ($user->save()) {
+                $auth->revokeAll($id);
+                foreach ($model->roles as $value) {
+                    $role = $auth->getRole($value);
+                    $auth->assign($role, $id);
+                }
+            }
+            $this->redirect(['/user/index']);
+        }
+
         $roles = $auth->getRoles();
         $roles_array = [];
         foreach ($roles as $key => $value) {

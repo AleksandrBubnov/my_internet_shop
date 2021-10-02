@@ -6,6 +6,10 @@ use yii\widgets\ActiveForm;
 use kartik\file\FileInput;
 use yii\helpers\Url;
 
+// use yii\{bootstrap5}\Modal;
+// use kartikorm\ActiveForm;
+use kartik\date\DatePicker;
+
 // FileInput::bsVersion = 3;
 
 $form = ActiveForm::begin([
@@ -30,6 +34,35 @@ $form = ActiveForm::begin([
         <?php
         echo $form->field($model, 'name')->textInput();
         echo $form->field($model, 'description')->textarea(['rows' => '5']);
+        ?>
+
+        <div class="row">
+            <div class="col_md-6 mr-3">
+                <?= // Usage with model and Active Form (with no default initial value)
+                $form->field($model, 'date_start')->widget(DatePicker::classname(), [
+                    'options' => ['placeholder' => 'Enter birth date ...'],
+                    'readonly' => true,
+                    // 'size' => 'lg',
+                    'pluginOptions' => [
+                        'todayHighlight' => true,
+                        'todayBtn' => true,
+                        'autoclose' => true,
+                        'format' => 'dd/mm/yyyy',
+                    ]
+                ]); ?>
+            </div>
+            <div class="col_md-6">
+                <?=
+                $form->field($model, 'date_end')->widget(DatePicker::classname(), [
+                    'options' => ['placeholder' => 'Enter birth date ...'],
+                    'pluginOptions' => [
+                        'autoclose' => true,
+                    ]
+                ]); ?>
+            </div>
+        </div>
+
+        <?php
         // echo $form->field($model, 'imageFile')->fileInput(
         echo $form->field($model, 'imageFile')->widget(
             FileInput::classname(),

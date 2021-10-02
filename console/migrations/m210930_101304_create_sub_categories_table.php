@@ -6,7 +6,7 @@ use yii\db\Migration;
  * Handles the creation of table `{{%sub_categories}}`.
  * Has foreign keys to the tables:
  *
- * - `{{%category}}`
+ * - `{{%categories}}`
  */
 class m210930_101304_create_sub_categories_table extends Migration
 {

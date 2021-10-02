@@ -37,6 +37,7 @@ use yii\helpers\Url;
             [
                 'label' => 'Категория',
                 'attribute' => 'category',
+                // 'attribute' => 'category.name',
             ],
             [
                 'class' => 'yii\grid\ActionColumn',

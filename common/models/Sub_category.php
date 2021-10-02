@@ -28,11 +28,13 @@ class Sub_category extends \yii\db\ActiveRecord
         ];
     }
 
-    // /**
-    //  * @return \yii\db\ActiveQuery
-    //  */
-    // public function getCategories()
-    // {
-    //     return $this->hasOne(Category::className(), ['id' => 'category_id']);
-    // }
+    // описываем связь с другой таблицей
+    // связь/класс с которой соединяем/по каким полям связываем
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
+    }
 }

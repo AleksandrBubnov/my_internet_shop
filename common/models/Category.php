@@ -27,10 +27,12 @@ class Category extends ActiveRecord
         ];
     }
 
+    // // описываем связь с другой таблицей
+    // // связь/класс с которой соединяем/по каким полям связываем
     // /**
     //  * @return \yii\db\ActiveQuery
     //  */
-    // public function getCategories()
+    // public function getSub_categories()
     // {
     //     return $this->hasMany(Sub_category::className(), ['category_id' => 'id']);
     // }

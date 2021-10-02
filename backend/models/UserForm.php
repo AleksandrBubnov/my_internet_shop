@@ -12,12 +12,14 @@ class UserForm extends Model
     public $second_name;
     public $last_name;
     public $roles;
+    public $status;
 
     public function rules()
     {
         return [
             [['first_name', 'second_name', 'last_name'], 'string', 'message' => 'не верный тип'],
-            [['first_name', 'last_name'], 'required', 'message' => 'значение обязательное'],
+            [['status'], 'integer', 'message' => 'не верный тип'],
+            [['first_name', 'last_name', 'status'], 'required', 'message' => 'значение обязательное'],
             [['roles'], 'safe'],
         ];
     }
@@ -29,8 +31,9 @@ class UserForm extends Model
             'first_name' => 'Имя',
             'second_name' => 'Отчество',
             'last_name' => 'Фамилия',
-            'roles' => 'Роли',
+            'roles' => 'Роли пользователя',
             'email' => 'Электронная почта',
+            'status' => 'Статус пользователя',
         ];
     }
 }

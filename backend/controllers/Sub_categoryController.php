@@ -58,6 +58,17 @@ class Sub_categoryController extends Controller
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
+
+        #region
+
+        // $dataProvider = new ActiveDataProvider([
+        //     'query' => Sub_category::find(),
+        // ]);
+        // return $this->render('index', [
+        //     'dataProvider' => $dataProvider,
+        // ]);
+
+        #endregion
     }
 
     public function actionCreate()

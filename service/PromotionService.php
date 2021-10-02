@@ -19,6 +19,8 @@ class PromotionService
 
         $promotion->name = $model->name;
         $promotion->description = $model->description;
+        $promotion->date_start = $model->date_start;
+        $promotion->date_end = $model->date_end;
         $promotion->url_image = $url_image;
         return $promotion->save();
     }
