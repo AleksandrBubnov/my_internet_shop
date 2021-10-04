@@ -27,6 +27,7 @@
         "kartik-v/yii2-widget-fileinput": "dev-master",
         "kartik-v/yii2-widget-select2": "dev-master",
         "kartik-v/yii2-widget-datepicker": "dev-master",
+        "kartik-v/yii2-widget-depdrop": "dev-master",
         "kartik-v/yii2-icons": "^1.4"
     },
     "require-dev": {

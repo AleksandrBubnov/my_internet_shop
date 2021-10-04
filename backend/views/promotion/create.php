@@ -40,7 +40,7 @@ $form = ActiveForm::begin([
             <div class="col_md-6 mr-3">
                 <?= // Usage with model and Active Form (with no default initial value)
                 $form->field($model, 'date_start')->widget(DatePicker::classname(), [
-                    'options' => ['placeholder' => 'Enter birth date ...'],
+                    'options' => ['placeholder' => 'Enter start date ...'],
                     'readonly' => true,
                     // 'size' => 'lg',
                     'pluginOptions' => [
@@ -54,7 +54,7 @@ $form = ActiveForm::begin([
             <div class="col_md-6">
                 <?=
                 $form->field($model, 'date_end')->widget(DatePicker::classname(), [
-                    'options' => ['placeholder' => 'Enter birth date ...'],
+                    'options' => ['placeholder' => 'Enter end date ...'],
                     'pluginOptions' => [
                         'autoclose' => true,
                     ]

@@ -8,10 +8,25 @@ $this->title = 'Обновление пользователя';
 $this->params['breadcrumbs'][] = ['label' => 'Персонал', 'url' => ['/user/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
+// хеадок
+$js = <<<JS
+    $('#userform-status').change(function(){
+        alert('Вы изменили статус пользователя');
+    })
+JS;
+
+$this->registerJs($js);
+
+$this->registerCss("
+    #div_test {
+        background-color: yellow;
+    }
+");
+
 ?>
 
 <div class="panel panel-default">
-    <div class="panel-heading"><?= $this->title ?></div>
+    <div class="panel-heading" id="div_test"><?= $this->title ?></div>
     <div class="panel-body">
 
         <?php

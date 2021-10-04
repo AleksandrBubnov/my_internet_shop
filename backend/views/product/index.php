@@ -1,28 +1,21 @@
 <?php
-/* @var $this yii\web\View */
 
 use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-// use yii\{bootstrap5}\Modal;
-// use kartikorm\ActiveForm;
-// use kartik\date\DatePicker;
-
+// die(var_dump($model));
 ?>
 
 <div class="row">
     <div class="col-md-12">
-        <?=
-        Html::a(
-            'ДОБАВИТЬ АКЦИЮ',
-            Url::toRoute('/promotion/create'),
+        <?= Html::a(
+            'ДОБАВИТЬ ТОВАР',
+            Url::toRoute(['product/create']),
             [
                 'class' => 'btn btn-success pull-right mb-1',
-                'id' => 'promotion-create'
             ]
-        );
-        ?>
+        ) ?>
     </div>
 </div>
 
@@ -45,15 +38,21 @@ use yii\helpers\Url;
                     // }
                 ],
                 [
-                    'label' => 'Начало акции',
-                    'attribute' => 'date_start',
+                    'label' => 'Категория',
+                    'attribute' => 'category.name',
                 ],
                 [
-                    'label' => 'Окончание акции',
-                    'attribute' => 'date_end',
+                    'label' => 'Подкатегория',
+                    'attribute' => 'sub_category.name',
                 ],
-                // 'name',
-                // 'description',
+                [
+                    'label' => 'Количество',
+                    'attribute' => 'count',
+                ],
+                [
+                    'label' => 'Цена',
+                    'attribute' => 'price',
+                ],
                 [
                     'class' => 'yii\grid\ActionColumn',
                     // 'attribute' => 'options',

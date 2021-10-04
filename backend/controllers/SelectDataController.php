@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use common\models\Promotion;
+use common\models\Sub_category;
 use Yii;
 use yii\web\Controller;
 use yii\web\Response;
@@ -20,5 +21,30 @@ class SelectDataController extends Controller
             $promotion->save();
         }
         return true;
+    }
+
+    public function actionSub_category()
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        if (isset($_POST['depdrop_all_params']['category'])) {
+            $output = [];
+            $selected = [];
+            $category_id = $_POST['depdrop_all_params']['category'];
+            $sub_categories = Sub_category::findAll(['category_id' => $category_id]);
+            $select_sub_category = $_POST['depdrop_all_params']['sel-sub_category'];
+            foreach ($sub_categories as $sub_category) {
+                $output[] = [
+                    'id' => $sub_category->id,
+                    'name' => $sub_category->name,
+                ];
+                if ($select_sub_category == $sub_category->id) {
+                    $selected = [
+                        'id' => $sub_category->id,
+                        'name' => $sub_category->name,
+                    ];
+                }
+            }
+            return ['output' => $output, 'selected' => $selected];
+        }
     }
 }
