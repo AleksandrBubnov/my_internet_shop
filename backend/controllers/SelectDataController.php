@@ -13,9 +13,29 @@ class SelectDataController extends Controller
     public function actionFileDeletePromotion($id)
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
+        // die(var_dump($_POST['caption']));
         if (isset($_POST['key'])) {
-            $name_file = '../../uploads' . $_POST['key'];
+            $name_file = '../../uploads/promotions/' . $_POST['key'];
             if (file_exists($name_file)) unlink($name_file);
+            $promotion = Promotion::findOne(['id' => $id]);
+            $promotion->url_image = null;
+            $promotion->save();
+        }
+        return true;
+    }
+
+    public function actionFileDeleteProduct($id)
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+        die(var_dump($_POST['key']));
+
+        if (isset($_POST['key'])) {
+            $name_file = '../../uploads/products' . $_POST['key'];
+            if (file_exists($name_file)) unlink($name_file);
+
+            // получить массив
+            // сформировать новый массив
+
             $promotion = Promotion::findOne(['id' => $id]);
             $promotion->url_image = null;
             $promotion->save();

@@ -59,8 +59,9 @@ class PromotionForm extends Model
     public function imagePath()
     {
         if (!file_exists('../../uploads/')) mkdir('../../uploads/');
+        if (!file_exists('../../uploads/promotions/')) mkdir('../../uploads/promotions/');
 
-        return '../../uploads/' . md5(microtime() . rand(0, 10000))  . '.' . $this->imageFile->extension;
+        return '../../uploads/promotions/' . md5(microtime() . rand(0, 10000))  . '.' . $this->imageFile->extension;
     }
     public function validateDate()
     {

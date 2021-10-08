@@ -116,21 +116,27 @@ class ProductController extends Controller
 
         $categories = Category::find()->all();
         $categories_array = [];
-        foreach ($categories as $category) {
-            $categories_array[$category->id] = $category->name;
+        if ($categories) {
+            foreach ($categories as $category) {
+                $categories_array[$category->id] = $category->name;
+            }
         }
+
         $url_images_tmp = json_decode($product->url_images);
         $url_images = [];
         $image_conf = [];
-        foreach ($url_images_tmp as $images_tmp) {
-            $url_images[] = '../../' . $images_tmp;
+        if ($url_images_tmp) {
+            foreach ($url_images_tmp as $images_tmp) {
+                $url_images[] = '../../' . $images_tmp;
 
-            $name_file = explode('/', $images_tmp);
-            $image_conf[] =
-                [
-                    'caption' => $name_file[count($name_file) - 1],
-                    'size' => '',
-                ];
+                $name_file = explode('/', $images_tmp);
+                $image_conf[] =
+                    [
+                        'key' => $name_file[count($name_file) - 1],
+                        'caption' => $name_file[count($name_file) - 1],
+                        'size' => '',
+                    ];
+            }
         }
         // die(var_dump($image_conf));
 

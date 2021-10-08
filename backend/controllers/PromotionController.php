@@ -120,6 +120,7 @@ class PromotionController extends  Controller
         $name_file = explode('/', $promotion->url_image);
         $image_conf = [
             [
+                'key' => $name_file[count($name_file) - 1],
                 'caption' => $name_file[count($name_file) - 1],
                 'size' => '',
             ]

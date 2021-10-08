@@ -49,10 +49,20 @@ $form = ActiveForm::begin([
 <div class="row">
     <div class="col-md-12">
         <?php
-        echo $form->field($product, 'name')->textInput(['readonly' => true]);
-        echo $form->field($product, 'description')->textarea(['rows' => '5', 'readonly' => true]);
+        echo $form->field($product, 'name')->textInput(['readonly' => true])
+            ->label('Название товара');;
+        echo $form->field($product, 'description')->textarea(['rows' => '5', 'readonly' => true])
+            ->label('Описание товара');;
         ?>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-md-6">
+        <?= $form->field($product, 'count')->textInput(['readonly' => true])->label('Количество товара'); ?>
+    </div>
+    <div class="col-md-6">
+        <?= $form->field($product, 'price')->textInput(['readonly' => 'readonly'])->label('Цена товара'); ?>
     </div>
 </div>
 

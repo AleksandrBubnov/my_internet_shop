@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name' => 'My internet shop',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -44,6 +45,18 @@ return [
             ],
         ],
         */
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '/' => 'shop/index',
+                '<controller>/<id:\d+>/<action>' => '<controller>/<action>',
+                // 'shop/<category_id:\d+>/category/<sub_category_id:\d+>' => 'shop/category',
+                // '/promotion/index' => 'promotion/index',
+                // '/promotion/create' => '/promotion/create',
+            ],
+        ],
+
     ],
     'params' => $params,
 ];

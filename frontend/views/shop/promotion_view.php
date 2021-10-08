@@ -4,7 +4,6 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
-use kartik\file\FileInput;
 
 $form = ActiveForm::begin([
     'options' => [
@@ -27,45 +26,6 @@ if ($promotion->date_start && $promotion->date_end) {
     <div class="col-md-4 col-12 bg-light card mr-2 p-0">
         <img class="card-img" src="<?= '../../' . $promotion->url_image ?>" alt="<?= $promotion->url_image ?>">
 
-        <?php
-
-        // echo $form->field($model, 'imageFile')->widget(
-        //     FileInput::classname(),
-        //     [
-        //         'disabled' => true,
-        //         'options' => [
-        //             'accept' => 'image/*',
-        //             'multiple' => false
-        //         ],
-        //         'pluginOptions' => [
-        //             'initialPreview' => '../../' . $promotion->url_image,
-        //             'initialPreviewAsData' => true,
-        //             'showCaption' => false,
-        //             'browseClass' => 'btn btn-primary pull-right',
-        //             'maxFileSize' => 2800,
-        //         ]
-        //     ]
-        // );
-
-        #region
-        // echo '<label class="control-label"> Select Attachment </label>';
-        // echo FileInput::widget([
-        //     'disabled' => true,
-        //     'name' => 'attachment_30',
-        //     'pluginOptions' => [
-        //         'initialPreview' => '../' . $promotion->url_image,
-        //         'initialPreviewAsData' => true,
-        //         // 'showPreview' => false,
-        //         'showCaption' => false,
-        //         'showRemove' => false,
-        //         'showUpload' => false,
-        //         'showBrowse' => false,
-        //     ],
-        //     'options' => ['accept' => 'image/*']
-        // ]);
-        #endregion
-
-        ?>
     </div>
 
     <div class="col-lg col-12 p-0">
@@ -88,7 +48,7 @@ if ($promotion->date_start && $promotion->date_end) {
     <?=
     Html::a(
         'Закрыть',
-        Url::toRoute('/promotion/index'),
+        Url::toRoute('/shop/index'),
         [
             'class' => 'btn btn-primary float-right mb-2 ',
         ]
