@@ -7,11 +7,36 @@ use common\models\Category;
 use common\models\Product;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\UploadedFile;
 
 class ProductController extends Controller
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        // 'actions' => ['*'],
+                        'allow' => true,
+                        // 'roles' => ['@'],
+                        'roles' => ['admin', 'owner', 'seo_manager', 'content_manager'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([

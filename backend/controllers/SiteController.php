@@ -17,32 +17,32 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        // 'roles' => ['@'],
-                        'roles' => ['admin'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         'access' => [
+    //             'class' => AccessControl::className(),
+    //             'rules' => [
+    //                 [
+    //                     'actions' => ['login', 'error'],
+    //                     'allow' => true,
+    //                 ],
+    //                 [
+    //                     'actions' => ['logout', 'index'],
+    //                     'allow' => true,
+    //                     // 'roles' => ['@'],
+    //                     'roles' => ['admin'],
+    //                 ],
+    //             ],
+    //         ],
+    //         'verbs' => [
+    //             'class' => VerbFilter::className(),
+    //             'actions' => [
+    //                 'logout' => ['post'],
+    //             ],
+    //         ],
+    //     ];
+    // }
 
     /**
      * {@inheritdoc}
